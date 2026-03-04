@@ -1,4 +1,4 @@
-on:
+ on:
   workflow_disbatch:
 
 jobs: 
@@ -7,18 +7,23 @@ jobs:
     steps:
     - runs: "echo job ${{ github.job }}"
 
+    
 job_2:
   runs-on: ubuntu:latest
   needs: job_1
   steps:
    - runs: "echo job ${{ github.job }}"
+
+   
 job_3:
   runs-on: ubuntu:latest 
   needs: job_1
   steps:
-   - runs: "echo job ${{ github.job }}"
+  - runs: "echo job ${{ github.job }}"
+
+   
 job_4:
   runs-on: ubuntu:latest
   needs: [job_2,job_3]
   steps:
-   - runs: "echo job ${{ github.job }}"
+  - runs: "echo job ${{ github.job }}"
